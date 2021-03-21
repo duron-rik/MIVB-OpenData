@@ -142,6 +142,14 @@ GTFSRoute >> gtInspectorTranslationsIn: composite [
    
 ]
 
+{ #category : #'labelled-presenters' }
+GTFSRoute >> iconWidth [
+	"return the width of the icon for this route"
+
+			
+	^ MIVBIcon widthFor: (self shortName)
+]
+
 { #category : #navigation }
 GTFSRoute >> lineStops [
 	"return the lineStops for this route"
@@ -188,23 +196,14 @@ GTFSRoute >> routeId: anObject [
 GTFSRoute >> routeIdIcon [
 	"return a Form with a rounded rectangle in color and the routeId in text color"
 
-	| form font stringWidth width shift |
+	| form shift |
 	shift := 8.
-	font := StrikeFont
-		familyName: #'Bitmap Source Sans Pro'
-		size: 32
-		emphasized: 1.
-	stringWidth := font widthOfString: self shortName.
-	width := stringWidth + 8 max: 32.
-	form := Form extent: (width + shift) @ (32 + shift) depth: 32.
+	form := Form extent: (self iconWidth + shift) @ (32 + shift) depth: 32.
 	MIVBIcon 
 		drawRouteIdIconOn: form
 		withText: self shortName
 		color: (Color fromHexString: self color)
 		textColor: (Color fromHexString: self textColor)
-		font: font
-		width: width
-		stringWidth: stringWidth
 		shift: shift.
 	MIVBIcon 
 	   drawSmallRouteTypeIconOn: form 
