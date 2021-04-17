@@ -3,7 +3,7 @@ BaseLineOfMIVBOpenData defines the dependencies for the project MIVB-OpenData
 "
 Class {
 	#name : #BaselineOfMIVBOpenData,
-	#superclass : #Object,
+	#superclass : #BaselineOf,
 	#category : #BaselineOfMIVBOpenData
 }
 
