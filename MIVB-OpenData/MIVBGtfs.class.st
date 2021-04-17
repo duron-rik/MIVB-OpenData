@@ -131,7 +131,7 @@ MIVBGtfs class >> fileReference [
 
 { #category : #'class initialization' }
 MIVBGtfs class >> initialize [
-	"initialize the 3 dictionaries with default nil"
+	"initialize the 3 dictionaries with default nil and reset the default download date to today"
 
    Stops := nil.
    Routes := nil.
