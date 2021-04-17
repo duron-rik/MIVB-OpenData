@@ -9,6 +9,7 @@ Class {
 	#name : #MIVBGtfs,
 	#superclass : #Object,
 	#classVars : [
+		'DefaultDownloadDate',
 		'Routes',
 		'Stops',
 		'Translations'
@@ -16,11 +17,19 @@ Class {
 	#category : #'MIVB-OpenData'
 }
 
+{ #category : #accessing }
+MIVBGtfs class >> defaultDownloadDate: aDate [
+	"set the default download date to used to find the default gtfs files"
+
+			
+	DefaultDownloadDate := aDate
+]
+
 { #category : #'accessing - data' }
 MIVBGtfs class >> defaultReference [
 	"return the default MIVB GTFS file reference"
 
-	^ (self fileLocatorOfDate: (Date fromString: '2021-03-13'))
+	^ (self fileLocatorOfDate: DefaultDownloadDate)
 		asFileReference
 ]
 
@@ -126,7 +135,8 @@ MIVBGtfs class >> initialize [
 
    Stops := nil.
    Routes := nil.
-   Translations := nil
+   Translations := nil.
+   DefaultDownloadDate := Date today
 ]
 
 { #category : #actions }
